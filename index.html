@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Framehouse - Анализатор смет для каркасных домов. Сравнение предложений по 10+ критериям.">
+    <title>Framehouse | Анализатор смет каркасных домов</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Chart.js for radar charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Cursor follower -->
+    <div class="cursor-follower"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader__content">
+            <div class="loader__spinner"></div>
+            <span class="loader__text" data-i18n="loader_text">Загрузка анализатора...</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">
+                    <svg class="logo__icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 2L2 10V22L16 30L30 22V10L16 2Z" stroke="url(#logoGradient)" stroke-width="2" fill="none"/>
+                        <path d="M16 10L8 14.5V23L16 27.5L24 23V14.5L16 10Z" fill="url(#logoGradient)"/>
+                        <defs>
+                            <linearGradient id="logoGradient" x1="2" y1="2" x2="30" y2="30">
+                                <stop stop-color="#6366f1"/>
+                                <stop offset="1" stop-color="#22d3ee"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo__text">Framehouse</span>
+                </a>
+                <ul class="nav__menu">
+                    <li class="nav__item"><a href="#analyzer" class="nav__link" data-i18n="nav_analyzer">Анализатор</a></li>
+                    <li class="nav__item"><a href="#how-it-works" class="nav__link" data-i18n="nav_how_it_works">Как работает</a></li>
+                    <li class="nav__item"><a href="#criteria" class="nav__link" data-i18n="nav_criteria">Критерии</a></li>
+                    <li class="nav__item"><a href="#faq" class="nav__link">FAQ</a></li>
+                </ul>
+                <!-- Language & Currency Switchers -->
+                <div class="nav__controls">
+                    <div class="lang-switcher" id="langSwitcher">
+                        <button class="lang-switcher__btn is-active" data-lang="ru">RU</button>
+                        <button class="lang-switcher__btn" data-lang="en">EN</button>
+                    </div>
+                    <div class="currency-switcher" id="currencySwitcher">
+                        <button class="currency-switcher__btn is-active" data-currency="RUB">₽</button>
+                        <button class="currency-switcher__btn" data-currency="EUR">€</button>
+                        <button class="currency-switcher__btn" data-currency="USD">$</button>
+                    </div>
+                </div>
+                <a href="#analyzer" class="btn btn--primary btn--sm nav__cta" data-i18n="nav_cta">Начать анализ</a>
+                <button class="nav__burger" id="burger" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu__list">
+            <li><a href="#analyzer" class="mobile-menu__link" data-i18n="nav_analyzer">Анализатор</a></li>
+            <li><a href="#how-it-works" class="mobile-menu__link" data-i18n="nav_how_it_works">Как работает</a></li>
+            <li><a href="#criteria" class="mobile-menu__link" data-i18n="nav_criteria">Критерии</a></li>
+            <li><a href="#faq" class="mobile-menu__link">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__badge fade-in">
+                        <span class="hero__badge-dot"></span>
+                        <span data-i18n="hero_badge">Профессиональный инструмент анализа</span>
+                    </div>
+                    <h1 class="hero__title reveal-text">
+                        <span data-i18n="hero_title_1">Сравните сметы</span>
+                        <span data-i18n="hero_title_2">каркасных домов</span>
+                        <span class="gradient-text" data-i18n="hero_title_3">за 2 минуты</span>
+                    </h1>
+                    <p class="hero__subtitle fade-in" data-i18n="hero_subtitle">
+                        Загрузите сметы от конкурента и наше предложение — получите детальный анализ по 10 критериям: от стоимости до энергоэффективности
+                    </p>
+                    <div class="hero__buttons fade-in">
+                        <a href="#analyzer" class="btn btn--primary btn--lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                            </svg>
+                            <span data-i18n="hero_btn_upload">Загрузить сметы</span>
+                        </a>
+                        <a href="#how-it-works" class="btn btn--outline btn--lg" data-i18n="hero_btn_how">Как это работает</a>
+                    </div>
+                    <div class="hero__stats fade-in">
+                        <div class="hero__stat">
+                            <span class="hero__stat-value">10+</span>
+                            <span class="hero__stat-label" data-i18n="hero_stat_criteria">Критериев сравнения</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-value">PDF/Excel</span>
+                            <span class="hero__stat-label" data-i18n="hero_stat_formats">Форматы файлов</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-value">∞</span>
+                            <span class="hero__stat-label" data-i18n="hero_stat_free">Бесплатных анализов</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__visual">
+                    <div class="hero__card hero__card--1">
+                        <div class="hero__card-header">
+                            <span class="hero__card-dot"></span>
+                            <span data-i18n="hero_card_competitor">Смета конкурента</span>
+                        </div>
+                        <div class="hero__card-content">
+                            <div class="hero__card-row">
+                                <span data-i18n="hero_card_cost">Стоимость</span>
+                                <span class="text-red">2 450 000 ₽</span>
+                            </div>
+                            <div class="hero__card-row">
+                                <span data-i18n="hero_card_energy">Энергоэффективность</span>
+                                <span>C класс</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__card hero__card--2">
+                        <div class="hero__card-header">
+                            <span class="hero__card-dot hero__card-dot--green"></span>
+                            <span data-i18n="hero_card_our">Наше предложение</span>
+                        </div>
+                        <div class="hero__card-content">
+                            <div class="hero__card-row">
+                                <span data-i18n="hero_card_cost">Стоимость</span>
+                                <span class="text-green">2 180 000 ₽</span>
+                            </div>
+                            <div class="hero__card-row">
+                                <span data-i18n="hero_card_energy">Энергоэффективность</span>
+                                <span class="text-green">A+ класс</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__shape hero__shape--1"></div>
+                    <div class="hero__shape hero__shape--2"></div>
+                </div>
+            </div>
+            <div class="hero__scroll">
+                <span>Scroll</span>
+                <div class="hero__scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Analyzer Section -->
+        <section class="analyzer section" id="analyzer">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label" data-i18n="analyzer_label">Инструмент</span>
+                    <h2 class="section__title reveal-text" data-i18n="analyzer_title">Анализатор смет</h2>
+                    <p class="section__desc" data-i18n="analyzer_desc">Загрузите файлы или введите данные вручную для детального сравнения</p>
+                </div>
+
+                <!-- Analyzer Tabs -->
+                <div class="analyzer__tabs">
+                    <button class="analyzer__tab is-active" data-tab="upload">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                        <span data-i18n="tab_upload">Загрузить файлы</span>
+                    </button>
+                    <button class="analyzer__tab" data-tab="manual">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                            <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                        <span data-i18n="tab_manual">Ввести вручную</span>
+                    </button>
+                </div>
+
+                <!-- Upload Panel -->
+                <div class="analyzer__panel" id="uploadPanel">
+                    <div class="analyzer__upload-grid">
+                        <!-- Competitor Upload -->
+                        <div class="upload-zone" id="competitorZone">
+                            <div class="upload-zone__content">
+                                <div class="upload-zone__icon upload-zone__icon--red">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                                    </svg>
+                                </div>
+                                <h3 class="upload-zone__title" data-i18n="upload_competitor_title">Смета конкурента</h3>
+                                <p class="upload-zone__desc" data-i18n="upload_desc">Перетащите файл или нажмите для выбора</p>
+                                <span class="upload-zone__formats" data-i18n="upload_formats">PDF, Excel, CSV до 10MB</span>
+                                <input type="file" class="upload-zone__input" id="competitorFile" accept=".pdf,.xlsx,.xls,.csv">
+                            </div>
+                            <div class="upload-zone__preview" id="competitorPreview">
+                                <div class="upload-zone__file">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                        <path d="M14 2v6h6"/>
+                                    </svg>
+                                    <span class="upload-zone__filename"></span>
+                                    <button class="upload-zone__remove" aria-label="Удалить">×</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VS Divider -->
+                        <div class="upload-vs">
+                            <span>VS</span>
+                        </div>
+
+                        <!-- Our Offer Upload -->
+                        <div class="upload-zone" id="ourZone">
+                            <div class="upload-zone__content">
+                                <div class="upload-zone__icon upload-zone__icon--green">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                                    </svg>
+                                </div>
+                                <h3 class="upload-zone__title" data-i18n="upload_our_title">Наше предложение</h3>
+                                <p class="upload-zone__desc" data-i18n="upload_desc">Перетащите файл или нажмите для выбора</p>
+                                <span class="upload-zone__formats" data-i18n="upload_formats">PDF, Excel, CSV до 10MB</span>
+                                <input type="file" class="upload-zone__input" id="ourFile" accept=".pdf,.xlsx,.xls,.csv">
+                            </div>
+                            <div class="upload-zone__preview" id="ourPreview">
+                                <div class="upload-zone__file">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                        <path d="M14 2v6h6"/>
+                                    </svg>
+                                    <span class="upload-zone__filename"></span>
+                                    <button class="upload-zone__remove" aria-label="Удалить">×</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manual Input Panel -->
+                <div class="analyzer__panel is-hidden" id="manualPanel">
+                    <div class="analyzer__manual-grid">
+                        <!-- Competitor Form -->
+                        <div class="estimate-form">
+                            <div class="estimate-form__header estimate-form__header--red">
+                                <h3 data-i18n="upload_competitor_title">Смета конкурента</h3>
+                            </div>
+                            <div class="estimate-form__body" id="competitorForm">
+                                <!-- Section 1: Readiness & Dimensions -->
+                                <div class="form-section is-open">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">1</span>
+                                        <span data-i18n="section_readiness">Стадия готовности</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_price">Общая стоимость</span></label>
+                                                <input type="number" class="form__input" name="competitor_price" placeholder="2 450 000">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_area">Площадь (м²)</span></label>
+                                                <input type="number" class="form__input" name="competitor_area" placeholder="120">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_floors">Этажность</span></label>
+                                                <select class="form__input form__select" name="competitor_floors">
+                                                    <option value="1">1 этаж</option>
+                                                    <option value="2">2 этажа</option>
+                                                    <option value="3">3 этажа</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_roof_type">Тип крыши</span></label>
+                                                <select class="form__input form__select" name="competitor_roof_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="gable" data-i18n="roof_gable">Двускатная</option>
+                                                    <option value="hip" data-i18n="roof_hip">Вальмовая</option>
+                                                    <option value="flat" data-i18n="roof_flat">Плоская</option>
+                                                    <option value="mansard" data-i18n="roof_mansard">Мансардная</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 2: Construction System -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">2</span>
+                                        <span data-i18n="section_construction">Конструкция</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_structure_type">Тип несущей системы</span></label>
+                                                <select class="form__input form__select" name="competitor_structure_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="prefab" data-i18n="structure_prefab">Префаб (заводские панели)</option>
+                                                    <option value="frame" data-i18n="structure_frame">Каркас</option>
+                                                    <option value="brick" data-i18n="structure_brick">Кирпичная кладка</option>
+                                                    <option value="aerated" data-i18n="structure_aerated">Газоблок</option>
+                                                    <option value="concrete" data-i18n="structure_concrete">Железобетон (ЖБ)</option>
+                                                    <option value="clt" data-i18n="structure_clt">CLT-панели</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_weight">Вес конструкции (кг)</span></label>
+                                                <input type="number" class="form__input" name="competitor_weight" placeholder="12 000">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 3: Wall Physics & Thermal -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">3</span>
+                                        <span data-i18n="section_thermal">Физика стены и тепло</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_thickness">Толщина стен (мм)</span></label>
+                                                <input type="number" class="form__input" name="competitor_thickness" placeholder="150">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_insulation_type">Тип утепления</span></label>
+                                                <select class="form__input form__select" name="competitor_insulation_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="mineral" data-i18n="insulation_mineral">Минеральная вата</option>
+                                                    <option value="basalt" data-i18n="insulation_basalt">Базальтовая вата</option>
+                                                    <option value="eps" data-i18n="insulation_eps">Пенополистирол (EPS)</option>
+                                                    <option value="xps" data-i18n="insulation_xps">Экструдированный (XPS)</option>
+                                                    <option value="pir" data-i18n="insulation_pir">PIR/PUR</option>
+                                                    <option value="eco" data-i18n="insulation_eco">Эковата</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_insulation_thickness">Толщина утеплителя (мм)</span></label>
+                                                <input type="number" class="form__input" name="competitor_insulation_thickness" placeholder="150">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_energy">Класс энергоэффективности</span></label>
+                                                <select class="form__input form__select" name="competitor_energy">
+                                                    <option value="" data-i18n="energy_select">Выберите класс</option>
+                                                    <option value="A++">A++</option>
+                                                    <option value="A+">A+</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                    <option value="E">E</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_vapor_barrier">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_vapor_barrier">Пароизоляция</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_wind_barrier">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_wind_barrier">Ветрозащита</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 4: Box Completeness -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">4</span>
+                                        <span data-i18n="section_completeness">Комплектность коробки</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_full_insulation">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_full_insulation">Утепление по всему контуру</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_factory_prep">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_factory_prep">Заводская подготовка элементов</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_impregnation">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_impregnation">Пропитка древесины</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_fire_protection">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_fire_protection">Огнезащитная обработка</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_eco">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_eco">Экологичные материалы</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 5: Foundation -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">5</span>
+                                        <span data-i18n="section_foundation">Фундамент</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_foundation_type">Тип фундамента</span></label>
+                                                <select class="form__input form__select" name="competitor_foundation_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="slab" data-i18n="foundation_slab">Монолитная плита</option>
+                                                    <option value="strip" data-i18n="foundation_strip">Ленточный</option>
+                                                    <option value="pile" data-i18n="foundation_pile">Свайный</option>
+                                                    <option value="screw" data-i18n="foundation_screw">Винтовые сваи</option>
+                                                    <option value="basement" data-i18n="foundation_basement">С подвалом</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_foundation_insulation">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_foundation_insulation">Утепление фундамента</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_waterproofing">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_waterproofing">Гидроизоляция</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 6: Installation & Timing -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">6</span>
+                                        <span data-i18n="section_installation">Монтаж и сроки</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_installation_time">Срок монтажа (дней)</span></label>
+                                                <input type="number" class="form__input" name="competitor_installation_time" placeholder="14">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_complexity">Сложность монтажа</span></label>
+                                                <select class="form__input form__select" name="competitor_complexity">
+                                                    <option value="" data-i18n="complexity_select">Выберите</option>
+                                                    <option value="easy" data-i18n="complexity_easy">Лёгкий (своими руками)</option>
+                                                    <option value="medium" data-i18n="complexity_medium">Средний (бригада 2-3 чел)</option>
+                                                    <option value="hard" data-i18n="complexity_hard">Сложный (спецтехника)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_region">Регион строительства</span></label>
+                                                <select class="form__input form__select" name="competitor_region">
+                                                    <option value="" data-i18n="region_select">Выберите регион</option>
+                                                    <option value="central" data-i18n="region_central">Центральный</option>
+                                                    <option value="north" data-i18n="region_north">Северный</option>
+                                                    <option value="south" data-i18n="region_south">Южный</option>
+                                                    <option value="ural" data-i18n="region_ural">Урал</option>
+                                                    <option value="siberia" data-i18n="region_siberia">Сибирь</option>
+                                                    <option value="far_east" data-i18n="region_far_east">Дальний Восток</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_weather_dependent">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_weather_dependent">Зависит от погоды</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="competitor_crane_needed">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_crane_needed">Требуется кран</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 7: Logistics -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">7</span>
+                                        <span data-i18n="section_logistics">Логистика</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_delivery">Стоимость доставки</span></label>
+                                                <input type="number" class="form__input" name="competitor_delivery" placeholder="150 000">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_delivery_method">Способ доставки</span></label>
+                                                <select class="form__input form__select" name="competitor_delivery_method">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="truck" data-i18n="delivery_truck">Фура</option>
+                                                    <option value="container" data-i18n="delivery_container">Контейнер</option>
+                                                    <option value="trawl" data-i18n="delivery_trawl">Трал</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Our Form -->
+                        <div class="estimate-form">
+                            <div class="estimate-form__header estimate-form__header--green">
+                                <h3 data-i18n="upload_our_title">Наше предложение</h3>
+                            </div>
+                            <div class="estimate-form__body" id="ourForm">
+                                <!-- Section 1: Readiness & Dimensions -->
+                                <div class="form-section is-open">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">1</span>
+                                        <span data-i18n="section_readiness">Стадия готовности</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_price">Общая стоимость</span></label>
+                                                <input type="number" class="form__input" name="our_price" placeholder="2 180 000">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_area">Площадь (м²)</span></label>
+                                                <input type="number" class="form__input" name="our_area" placeholder="120">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_floors">Этажность</span></label>
+                                                <select class="form__input form__select" name="our_floors">
+                                                    <option value="1">1 этаж</option>
+                                                    <option value="2">2 этажа</option>
+                                                    <option value="3">3 этажа</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_roof_type">Тип крыши</span></label>
+                                                <select class="form__input form__select" name="our_roof_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="gable" data-i18n="roof_gable">Двускатная</option>
+                                                    <option value="hip" data-i18n="roof_hip">Вальмовая</option>
+                                                    <option value="flat" data-i18n="roof_flat">Плоская</option>
+                                                    <option value="mansard" data-i18n="roof_mansard">Мансардная</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 2: Construction System -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">2</span>
+                                        <span data-i18n="section_construction">Конструкция</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_structure_type">Тип несущей системы</span></label>
+                                                <select class="form__input form__select" name="our_structure_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="prefab" data-i18n="structure_prefab" selected>Префаб (заводские панели)</option>
+                                                    <option value="frame" data-i18n="structure_frame">Каркас</option>
+                                                    <option value="brick" data-i18n="structure_brick">Кирпичная кладка</option>
+                                                    <option value="aerated" data-i18n="structure_aerated">Газоблок</option>
+                                                    <option value="concrete" data-i18n="structure_concrete">Железобетон (ЖБ)</option>
+                                                    <option value="clt" data-i18n="structure_clt">CLT-панели</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_weight">Вес конструкции (кг)</span></label>
+                                                <input type="number" class="form__input" name="our_weight" placeholder="10 500">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 3: Wall Physics & Thermal -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">3</span>
+                                        <span data-i18n="section_thermal">Физика стены и тепло</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_thickness">Толщина стен (мм)</span></label>
+                                                <input type="number" class="form__input" name="our_thickness" placeholder="200">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_insulation_type">Тип утепления</span></label>
+                                                <select class="form__input form__select" name="our_insulation_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="mineral" data-i18n="insulation_mineral">Минеральная вата</option>
+                                                    <option value="basalt" data-i18n="insulation_basalt" selected>Базальтовая вата</option>
+                                                    <option value="eps" data-i18n="insulation_eps">Пенополистирол (EPS)</option>
+                                                    <option value="xps" data-i18n="insulation_xps">Экструдированный (XPS)</option>
+                                                    <option value="pir" data-i18n="insulation_pir">PIR/PUR</option>
+                                                    <option value="eco" data-i18n="insulation_eco">Эковата</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_insulation_thickness">Толщина утеплителя (мм)</span></label>
+                                                <input type="number" class="form__input" name="our_insulation_thickness" placeholder="200">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_energy">Класс энергоэффективности</span></label>
+                                                <select class="form__input form__select" name="our_energy">
+                                                    <option value="" data-i18n="energy_select">Выберите класс</option>
+                                                    <option value="A++" selected>A++</option>
+                                                    <option value="A+">A+</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                    <option value="E">E</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_vapor_barrier" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_vapor_barrier">Пароизоляция</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_wind_barrier" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_wind_barrier">Ветрозащита</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 4: Box Completeness -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">4</span>
+                                        <span data-i18n="section_completeness">Комплектность коробки</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_full_insulation" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_full_insulation">Утепление по всему контуру</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_factory_prep" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_factory_prep">Заводская подготовка элементов</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_impregnation" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_impregnation">Пропитка древесины</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_fire_protection" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_fire_protection">Огнезащитная обработка</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_eco" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_eco">Экологичные материалы</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 5: Foundation -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">5</span>
+                                        <span data-i18n="section_foundation">Фундамент</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_foundation_type">Тип фундамента</span></label>
+                                                <select class="form__input form__select" name="our_foundation_type">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="slab" data-i18n="foundation_slab" selected>Монолитная плита</option>
+                                                    <option value="strip" data-i18n="foundation_strip">Ленточный</option>
+                                                    <option value="pile" data-i18n="foundation_pile">Свайный</option>
+                                                    <option value="screw" data-i18n="foundation_screw">Винтовые сваи</option>
+                                                    <option value="basement" data-i18n="foundation_basement">С подвалом</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_foundation_insulation" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_foundation_insulation">Утепление фундамента</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_waterproofing" checked>
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_waterproofing">Гидроизоляция</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 6: Installation & Timing -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">6</span>
+                                        <span data-i18n="section_installation">Монтаж и сроки</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_installation_time">Срок монтажа (дней)</span></label>
+                                                <input type="number" class="form__input" name="our_installation_time" placeholder="10">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_complexity">Сложность монтажа</span></label>
+                                                <select class="form__input form__select" name="our_complexity">
+                                                    <option value="" data-i18n="complexity_select">Выберите</option>
+                                                    <option value="easy" data-i18n="complexity_easy" selected>Лёгкий (своими руками)</option>
+                                                    <option value="medium" data-i18n="complexity_medium">Средний (бригада 2-3 чел)</option>
+                                                    <option value="hard" data-i18n="complexity_hard">Сложный (спецтехника)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_region">Регион строительства</span></label>
+                                                <select class="form__input form__select" name="our_region">
+                                                    <option value="" data-i18n="region_select">Выберите регион</option>
+                                                    <option value="central" data-i18n="region_central" selected>Центральный</option>
+                                                    <option value="north" data-i18n="region_north">Северный</option>
+                                                    <option value="south" data-i18n="region_south">Южный</option>
+                                                    <option value="ural" data-i18n="region_ural">Урал</option>
+                                                    <option value="siberia" data-i18n="region_siberia">Сибирь</option>
+                                                    <option value="far_east" data-i18n="region_far_east">Дальний Восток</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-checkboxes">
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_weather_dependent">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_weather_dependent">Зависит от погоды</span>
+                                            </label>
+                                            <label class="form__checkbox">
+                                                <input type="checkbox" name="our_crane_needed">
+                                                <span class="form__checkbox-mark"></span>
+                                                <span data-i18n="form_crane_needed">Требуется кран</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 7: Logistics -->
+                                <div class="form-section">
+                                    <button class="form-section__header" type="button">
+                                        <span class="form-section__number">7</span>
+                                        <span data-i18n="section_logistics">Логистика</span>
+                                        <svg class="form-section__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                    </button>
+                                    <div class="form-section__content">
+                                        <div class="form-grid">
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_delivery">Стоимость доставки</span></label>
+                                                <input type="number" class="form__input" name="our_delivery" placeholder="120 000">
+                                            </div>
+                                            <div class="form__group">
+                                                <label class="form__label"><span data-i18n="form_delivery_method">Способ доставки</span></label>
+                                                <select class="form__input form__select" name="our_delivery_method">
+                                                    <option value="" data-i18n="select_placeholder">Выберите</option>
+                                                    <option value="truck" data-i18n="delivery_truck" selected>Фура</option>
+                                                    <option value="container" data-i18n="delivery_container">Контейнер</option>
+                                                    <option value="trawl" data-i18n="delivery_trawl">Трал</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analyze Button -->
+                <div class="analyzer__actions">
+                    <button class="btn btn--primary btn--lg btn--glow" id="analyzeBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                            <path d="M22 4L12 14.01l-3-3"/>
+                        </svg>
+                        <span data-i18n="btn_analyze">Провести анализ</span>
+                    </button>
+                    <button class="btn btn--outline btn--lg" id="loadDemoBtn" data-i18n="btn_demo">
+                        Загрузить демо-данные
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results section is-hidden" id="results">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label" data-i18n="results_label">Результаты</span>
+                    <h2 class="section__title" data-i18n="results_title">Сравнительный анализ</h2>
+                </div>
+
+                <!-- Winner Banner -->
+                <div class="results__winner" id="winnerBanner">
+                    <div class="results__winner-content">
+                        <div class="results__winner-icon">🏆</div>
+                        <div class="results__winner-text">
+                            <h3 data-i18n="winner_title">Лучшее предложение:</h3>
+                            <span class="results__winner-name" id="winnerName">Наше предложение</span>
+                        </div>
+                        <div class="results__winner-score">
+                            <span class="results__winner-score-value" id="winnerScore">8.5</span>
+                            <span class="results__winner-score-label" data-i18n="winner_score_label">из 10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="results__summary">
+                    <div class="summary-card summary-card--savings">
+                        <div class="summary-card__icon">💰</div>
+                        <div class="summary-card__content">
+                            <span class="summary-card__value" id="savingsValue">270 000 ₽</span>
+                            <span class="summary-card__label" data-i18n="summary_savings">Экономия</span>
+                        </div>
+                    </div>
+                    <div class="summary-card summary-card--time">
+                        <div class="summary-card__icon">⚡</div>
+                        <div class="summary-card__content">
+                            <span class="summary-card__value" id="timeValue">4 дня</span>
+                            <span class="summary-card__label" data-i18n="summary_time">Быстрее монтаж</span>
+                        </div>
+                    </div>
+                    <div class="summary-card summary-card--energy">
+                        <div class="summary-card__icon">🌱</div>
+                        <div class="summary-card__content">
+                            <span class="summary-card__value" id="energyValue">+2 класса</span>
+                            <span class="summary-card__label" data-i18n="summary_energy">Энергоэффективность</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="results__charts">
+                    <div class="chart-card">
+                        <h3 class="chart-card__title" data-i18n="chart_radar">Радар показателей</h3>
+                        <div class="chart-card__content">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3 class="chart-card__title" data-i18n="chart_cost">Сравнение стоимости</h3>
+                        <div class="chart-card__content">
+                            <canvas id="costChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Comparison Table -->
+                <div class="results__table-wrapper">
+                    <h3 class="results__table-title" data-i18n="table_title">Детальное сравнение</h3>
+                    <table class="comparison-table" id="comparisonTable">
+                        <thead>
+                            <tr>
+                                <th data-i18n="table_criteria">Критерий</th>
+                                <th class="text-red" data-i18n="table_competitor">Конкурент</th>
+                                <th class="text-green" data-i18n="table_our">Наше предложение</th>
+                                <th data-i18n="table_diff">Разница</th>
+                                <th data-i18n="table_winner">Победитель</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Filled by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="results__recommendations" id="recommendations">
+                    <h3 class="results__recommendations-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                        <span data-i18n="recommendations_title">Рекомендации</span>
+                    </h3>
+                    <ul class="results__recommendations-list" id="recommendationsList">
+                        <!-- Filled by JS -->
+                    </ul>
+                </div>
+
+                <!-- Actions -->
+                <div class="results__actions">
+                    <button class="btn btn--primary btn--lg" id="downloadPdfBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        <span data-i18n="btn_download_pdf">Скачать PDF отчёт</span>
+                    </button>
+                    <button class="btn btn--outline btn--lg" id="newAnalysisBtn" data-i18n="btn_new_analysis">
+                        Новый анализ
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works section" id="how-it-works">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label" data-i18n="how_label">Процесс</span>
+                    <h2 class="section__title reveal-text" data-i18n="how_title">Как работает анализатор</h2>
+                </div>
+                <div class="steps">
+                    <div class="step slide-up">
+                        <div class="step__number">01</div>
+                        <div class="step__content">
+                            <h3 class="step__title" data-i18n="step1_title">Загрузите сметы</h3>
+                            <p class="step__desc" data-i18n="step1_desc">Перетащите файлы PDF или Excel со сметами от конкурента и с вашим предложением</p>
+                        </div>
+                        <div class="step__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step slide-up">
+                        <div class="step__number">02</div>
+                        <div class="step__content">
+                            <h3 class="step__title" data-i18n="step2_title">Автоанализ данных</h3>
+                            <p class="step__desc" data-i18n="step2_desc">Система извлекает ключевые параметры и проводит сравнение по 10+ критериям</p>
+                        </div>
+                        <div class="step__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step slide-up">
+                        <div class="step__number">03</div>
+                        <div class="step__content">
+                            <h3 class="step__title" data-i18n="step3_title">Получите отчёт</h3>
+                            <p class="step__desc" data-i18n="step3_desc">Интерактивные графики, таблица сравнения и рекомендации с возможностью скачать PDF</p>
+                        </div>
+                        <div class="step__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <path d="M14 2v6h6M9 15l2 2 4-4"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Criteria Section -->
+        <section class="criteria section" id="criteria">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label" data-i18n="criteria_label">Критерии</span>
+                    <h2 class="section__title reveal-text" data-i18n="criteria_title">Что мы сравниваем</h2>
+                    <p class="section__desc" data-i18n="criteria_desc">Комплексная оценка по всем важным параметрам каркасного дома</p>
+                </div>
+                <div class="criteria__grid">
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">💰</div>
+                        <h3 class="criteria__title" data-i18n="criteria_price">Стоимость</h3>
+                        <p class="criteria__desc" data-i18n="criteria_price_desc">Общая цена проекта, включая материалы и работу</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">🚚</div>
+                        <h3 class="criteria__title" data-i18n="criteria_delivery">Доставка</h3>
+                        <p class="criteria__desc" data-i18n="criteria_delivery_desc">Стоимость транспортировки материалов на объект</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">⚖️</div>
+                        <h3 class="criteria__title" data-i18n="criteria_weight">Вес конструкции</h3>
+                        <p class="criteria__desc" data-i18n="criteria_weight_desc">Общая масса — влияет на фундамент и логистику</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">📏</div>
+                        <h3 class="criteria__title" data-i18n="criteria_thickness">Толщина стен</h3>
+                        <p class="criteria__desc" data-i18n="criteria_thickness_desc">Влияет на теплоизоляцию и полезную площадь</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">🌡️</div>
+                        <h3 class="criteria__title" data-i18n="criteria_energy">Энергоэффективность</h3>
+                        <p class="criteria__desc" data-i18n="criteria_energy_desc">Класс от A++ до E — экономия на отоплении</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">🌿</div>
+                        <h3 class="criteria__title" data-i18n="criteria_eco">Экологичность</h3>
+                        <p class="criteria__desc" data-i18n="criteria_eco_desc">Безопасность материалов для здоровья</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">🛡️</div>
+                        <h3 class="criteria__title" data-i18n="criteria_impregnation">Пропитка дерева</h3>
+                        <p class="criteria__desc" data-i18n="criteria_impregnation_desc">Защита от гниения, плесени и насекомых</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">🔥</div>
+                        <h3 class="criteria__title" data-i18n="criteria_fire">Огнезащита</h3>
+                        <p class="criteria__desc" data-i18n="criteria_fire_desc">Обработка антипиренами для безопасности</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">🔧</div>
+                        <h3 class="criteria__title" data-i18n="criteria_complexity">Лёгкость монтажа</h3>
+                        <p class="criteria__desc" data-i18n="criteria_complexity_desc">Нужна ли спецтехника или достаточно бригады</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">⏱️</div>
+                        <h3 class="criteria__title" data-i18n="criteria_time">Срок монтажа</h3>
+                        <p class="criteria__desc" data-i18n="criteria_time_desc">За сколько дней будет готов дом</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">🗺️</div>
+                        <h3 class="criteria__title" data-i18n="criteria_region">Регион</h3>
+                        <p class="criteria__desc" data-i18n="criteria_region_desc">Подходит ли конструкция для вашего климата</p>
+                    </div>
+                    <div class="criteria__item slide-up">
+                        <div class="criteria__icon">📊</div>
+                        <h3 class="criteria__title" data-i18n="criteria_rating">Итоговый рейтинг</h3>
+                        <p class="criteria__desc" data-i18n="criteria_rating_desc">Взвешенная оценка по всем критериям</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section" id="faq">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label">FAQ</span>
+                    <h2 class="section__title reveal-text" data-i18n="faq_title">Частые вопросы</h2>
+                </div>
+                <div class="faq__list">
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            <span data-i18n="faq1_q">Какие форматы файлов поддерживаются?</span>
+                            <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                        <div class="faq__answer">
+                            <p data-i18n="faq1_a">Анализатор принимает файлы в форматах PDF, Excel (.xlsx, .xls) и CSV. Максимальный размер файла — 10 МБ. Система автоматически распознаёт структуру сметы и извлекает ключевые параметры.</p>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            <span data-i18n="faq2_q">Как рассчитывается итоговый рейтинг?</span>
+                            <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                        <div class="faq__answer">
+                            <p data-i18n="faq2_a">Итоговый рейтинг — это взвешенная оценка от 1 до 10. Наибольший вес имеют: стоимость (25%), энергоэффективность (20%), срок монтажа (15%). Остальные критерии распределены равномерно.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section">
+            <div class="container">
+                <div class="cta__content">
+                    <h2 class="cta__title reveal-text" data-i18n="cta_title">Готовы сравнить сметы?</h2>
+                    <p class="cta__desc" data-i18n="cta_desc">Загрузите файлы и получите объективный анализ за пару минут</p>
+                    <a href="#analyzer" class="btn btn--primary btn--lg btn--glow" data-i18n="cta_btn">
+                        Начать анализ бесплатно
+                    </a>
+                </div>
+                <div class="cta__bg">
+                    <div class="cta__shape cta__shape--1"></div>
+                    <div class="cta__shape cta__shape--2"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="logo">
+                        <svg class="logo__icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 2L2 10V22L16 30L30 22V10L16 2Z" stroke="url(#logoGradient2)" stroke-width="2" fill="none"/>
+                            <path d="M16 10L8 14.5V23L16 27.5L24 23V14.5L16 10Z" fill="url(#logoGradient2)"/>
+                            <defs>
+                                <linearGradient id="logoGradient2" x1="2" y1="2" x2="30" y2="30">
+                                    <stop stop-color="#6366f1"/>
+                                    <stop offset="1" stop-color="#22d3ee"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo__text">Framehouse</span>
+                    </div>
+                    <p class="footer__desc" data-i18n="footer_desc">Профессиональный анализатор смет для каркасных домов</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__col">
+                        <h4 class="footer__col-title" data-i18n="footer_nav">Навигация</h4>
+                        <ul>
+                            <li><a href="#analyzer" data-i18n="nav_analyzer">Анализатор</a></li>
+                            <li><a href="#how-it-works" data-i18n="nav_how_it_works">Как работает</a></li>
+                            <li><a href="#criteria" data-i18n="nav_criteria">Критерии</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4 class="footer__col-title" data-i18n="footer_contacts">Контакты</h4>
+                        <ul>
+                            <li><a href="mailto:info@framehouse.ru">info@framehouse.ru</a></li>
+                            <li><a href="tel:+79991234567">+7 999 123-45-67</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright" data-i18n="footer_copyright">© 2024 Framehouse. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/analyzer.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
