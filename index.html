@@ -42,16 +42,19 @@
             <nav class="nav">
                 <a href="/" class="logo">
                     <svg class="logo__icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                        <path d="M16 2L2 10V22L16 30L30 22V10L16 2Z" stroke="url(#logoGradient)" stroke-width="2" fill="none"/>
-                        <path d="M16 10L8 14.5V23L16 27.5L24 23V14.5L16 10Z" fill="url(#logoGradient)"/>
                         <defs>
-                            <linearGradient id="logoGradient" x1="2" y1="2" x2="30" y2="30">
-                                <stop stop-color="#6366f1"/>
-                                <stop offset="1" stop-color="#22d3ee"/>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#D97706"/>
+                                <stop offset="100%" style="stop-color:#B45309"/>
                             </linearGradient>
                         </defs>
+                        <rect width="32" height="32" rx="6" fill="url(#logoGradient)"/>
+                        <path d="M6 6 L6 26 L10 26 L10 18 L14 18 L14 14 L10 14 L10 10 L16 10 L16 6 Z" fill="white"/>
+                        <path d="M22 6 L22 26 L26 26 L26 6 Z" fill="white"/>
+                        <rect x="10" y="14" width="12" height="4" fill="white"/>
+                        <path d="M12 22 L16 18 L20 22" fill="none" stroke="#B45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="logo__text">Framehouse</span>
+                    <span class="logo__text">Frame House</span>
                 </a>
                 <ul class="nav__menu">
                     <li class="nav__item"><a href="#analyzer" class="nav__link" data-i18n="nav_analyzer">Анализатор</a></li>
@@ -64,6 +67,8 @@
                     <div class="lang-switcher" id="langSwitcher">
                         <button class="lang-switcher__btn is-active" data-lang="ru">RU</button>
                         <button class="lang-switcher__btn" data-lang="en">EN</button>
+                        <button class="lang-switcher__btn" data-lang="it">IT</button>
+                        <button class="lang-switcher__btn" data-lang="fr">FR</button>
                     </div>
                     <div class="currency-switcher" id="currencySwitcher">
                         <button class="currency-switcher__btn is-active" data-currency="RUB">₽</button>

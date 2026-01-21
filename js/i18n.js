@@ -699,6 +699,702 @@ const translations = {
 
         tooltip_fire_title: 'Fire Protection',
         tooltip_fire_text: 'Fire retardants increase wood fire resistance from R15 to R45-R60. This can reduce home insurance costs by 20-30%.'
+    },
+    it: {
+        // Loader
+        loader_text: 'Caricamento analizzatore...',
+
+        // Header
+        nav_analyzer: 'Analizzatore',
+        nav_how_it_works: 'Come funziona',
+        nav_criteria: 'Criteri',
+        nav_faq: 'FAQ',
+        nav_cta: 'Inizia analisi',
+
+        // Hero
+        hero_badge: 'Strumento di analisi professionale',
+        hero_title_1: 'Confronta preventivi',
+        hero_title_2: 'per case in legno',
+        hero_title_3: 'in 2 minuti',
+        hero_subtitle: 'Carica il preventivo del concorrente e la nostra offerta — ottieni un\'analisi dettagliata su 10 criteri: dal costo all\'efficienza energetica',
+        hero_btn_upload: 'Carica preventivi',
+        hero_btn_how: 'Come funziona',
+        hero_stat_criteria: 'Criteri di confronto',
+        hero_stat_formats: 'Formati file',
+        hero_stat_free: 'Analisi gratuite',
+
+        // Hero cards
+        hero_card_competitor: 'Preventivo concorrente',
+        hero_card_our: 'La nostra offerta',
+        hero_card_cost: 'Costo',
+        hero_card_energy: 'Efficienza energetica',
+
+        // Analyzer
+        analyzer_label: 'Strumento',
+        analyzer_title: 'Analizzatore Preventivi',
+        analyzer_desc: 'Carica file o inserisci dati manualmente per un confronto dettagliato',
+        tab_upload: 'Carica file',
+        tab_manual: 'Inserisci manualmente',
+
+        // Upload zone
+        upload_competitor_title: 'Preventivo concorrente',
+        upload_our_title: 'La nostra offerta',
+        upload_desc: 'Trascina file o clicca per selezionare',
+        upload_formats: 'PDF, Excel, CSV fino a 10MB',
+
+        // Form sections
+        section_readiness: 'Stato di avanzamento',
+        section_construction: 'Costruzione',
+        section_thermal: 'Fisica della parete e termico',
+        section_completeness: 'Completezza struttura',
+        section_foundation: 'Fondazione',
+        section_installation: 'Installazione e tempi',
+        section_logistics: 'Logistica',
+
+        // Form labels
+        form_price: 'Costo totale',
+        form_area: 'Superficie (m²)',
+        form_floors: 'Piani',
+        form_roof_type: 'Tipo di tetto',
+        form_structure_type: 'Sistema strutturale',
+        form_delivery: 'Costo consegna',
+        form_delivery_method: 'Metodo di consegna',
+        form_weight: 'Peso costruzione (kg)',
+        form_thickness: 'Spessore pareti (mm)',
+        form_insulation_type: 'Tipo isolamento',
+        form_insulation_thickness: 'Spessore isolamento (mm)',
+        form_energy: 'Classe energetica',
+        form_vapor_barrier: 'Barriera vapore',
+        form_wind_barrier: 'Barriera vento',
+        form_full_insulation: 'Isolamento completo',
+        form_factory_prep: 'Elementi prefabbricati',
+        form_foundation_type: 'Tipo fondazione',
+        form_foundation_insulation: 'Isolamento fondazione',
+        form_waterproofing: 'Impermeabilizzazione',
+        form_installation_time: 'Tempo installazione (giorni)',
+        form_region: 'Regione costruzione',
+        form_complexity: 'Complessità installazione',
+        form_weather_dependent: 'Dipende dal meteo',
+        form_crane_needed: 'Richiesta gru',
+        form_impregnation: 'Impregnazione legno',
+        form_eco: 'Materiali ecologici',
+        form_fire_protection: 'Protezione antincendio',
+
+        // Select placeholders
+        select_placeholder: 'Seleziona',
+
+        // Roof types
+        roof_gable: 'A due falde',
+        roof_hip: 'A padiglione',
+        roof_flat: 'Piano',
+        roof_mansard: 'Mansarda',
+
+        // Structure types
+        structure_prefab: 'Prefabbricato (pannelli)',
+        structure_frame: 'Telaio',
+        structure_brick: 'Muratura',
+        structure_aerated: 'Calcestruzzo aerato',
+        structure_concrete: 'Cemento armato',
+        structure_clt: 'Pannelli CLT',
+
+        // Insulation types
+        insulation_mineral: 'Lana minerale',
+        insulation_basalt: 'Lana di basalto',
+        insulation_eps: 'Polistirolo (EPS)',
+        insulation_xps: 'Estruso (XPS)',
+        insulation_pir: 'PIR/PUR',
+        insulation_eco: 'Cellulosa',
+
+        // Foundation types
+        foundation_slab: 'Platea',
+        foundation_strip: 'A nastro',
+        foundation_pile: 'Su pali',
+        foundation_screw: 'Pali a vite',
+        foundation_basement: 'Con seminterrato',
+
+        // Delivery methods
+        delivery_truck: 'Camion',
+        delivery_container: 'Container',
+        delivery_trawl: 'Rimorchio pianale',
+
+        // Energy classes
+        energy_select: 'Seleziona classe',
+        energy_max: 'massimo',
+        energy_min: 'minimo',
+
+        // Regions
+        region_select: 'Seleziona regione',
+        region_central: 'Centrale',
+        region_north: 'Nord',
+        region_south: 'Sud',
+        region_ural: 'Urali',
+        region_siberia: 'Siberia',
+        region_far_east: 'Estremo Oriente',
+
+        // Complexity
+        complexity_select: 'Seleziona',
+        complexity_easy: 'Facile (fai-da-te)',
+        complexity_medium: 'Medio (squadra 2-3 persone)',
+        complexity_hard: 'Difficile (attrezzatura speciale)',
+
+        // Buttons
+        btn_analyze: 'Avvia Analisi',
+        btn_demo: 'Carica dati demo',
+        btn_download_pdf: 'Scarica report PDF',
+        btn_new_analysis: 'Nuova analisi',
+
+        // Results
+        results_label: 'Risultati',
+        results_title: 'Analisi Comparativa',
+        winner_title: 'Offerta migliore:',
+        winner_our: 'La nostra offerta',
+        winner_competitor: 'Offerta concorrente',
+        winner_score_label: 'su 10',
+        summary_savings: 'Risparmio',
+        summary_time: 'Installazione più veloce',
+        summary_energy: 'Efficienza energetica',
+        chart_radar: 'Radar prestazioni',
+        chart_cost: 'Confronto costi',
+        table_title: 'Confronto dettagliato',
+        table_criteria: 'Criterio',
+        table_competitor: 'Concorrente',
+        table_our: 'La nostra offerta',
+        table_diff: 'Differenza',
+        table_winner: 'Vincitore',
+        recommendations_title: 'Raccomandazioni',
+
+        // Table rows
+        row_price: 'Costo totale',
+        row_delivery: 'Costo consegna',
+        row_weight: 'Peso costruzione',
+        row_thickness: 'Spessore pareti',
+        row_insulation_thickness: 'Spessore isolamento',
+        row_energy: 'Efficienza energetica',
+        row_structure: 'Tipo struttura',
+        row_foundation: 'Tipo fondazione',
+        row_installation: 'Tempo installazione',
+        row_complexity: 'Complessità installazione',
+        row_vapor_barrier: 'Barriera vapore',
+        row_wind_barrier: 'Barriera vento',
+        row_full_insulation: 'Isolamento completo',
+        row_factory_prep: 'Pronto in fabbrica',
+        row_foundation_insulation: 'Isolamento fondazione',
+        row_waterproofing: 'Impermeabilizzazione',
+        row_impregnation: 'Impregnazione legno',
+        row_eco: 'Materiali ecologici',
+        row_fire: 'Protezione antincendio',
+
+        // Winner badges
+        badge_our: 'Noi',
+        badge_competitor: 'Concorrente',
+        badge_tie: 'Pari',
+
+        // Units
+        unit_kg: 'kg',
+        unit_mm: 'mm',
+        unit_days: 'giorni',
+        unit_day: 'giorno',
+        unit_days_few: 'giorni',
+
+        // Complexity names
+        complexity_easy_short: 'Facile',
+        complexity_medium_short: 'Medio',
+        complexity_hard_short: 'Difficile',
+
+        // Yes/No
+        yes: 'Sì',
+        no: 'No',
+
+        // How it works
+        how_label: 'Processo',
+        how_title: 'Come funziona l\'analizzatore',
+        step1_title: 'Carica preventivi',
+        step1_desc: 'Trascina file PDF o Excel con preventivo concorrente e la tua offerta',
+        step2_title: 'Auto-analisi',
+        step2_desc: 'Il sistema estrae i parametri chiave e confronta su 10+ criteri',
+        step3_title: 'Ottieni report',
+        step3_desc: 'Grafici interattivi, tabella comparativa e raccomandazioni con download PDF',
+
+        // Criteria section
+        criteria_label: 'Criteri',
+        criteria_title: 'Cosa confrontiamo',
+        criteria_desc: 'Valutazione completa di tutti i parametri importanti delle case in legno',
+        criteria_price: 'Costo',
+        criteria_price_desc: 'Prezzo totale progetto inclusi materiali e lavoro',
+        criteria_delivery: 'Consegna',
+        criteria_delivery_desc: 'Costo trasporto materiali al cantiere',
+        criteria_weight: 'Peso costruzione',
+        criteria_weight_desc: 'Massa totale — influenza fondazione e logistica',
+        criteria_thickness: 'Spessore pareti',
+        criteria_thickness_desc: 'Influenza isolamento termico e superficie utile',
+        criteria_energy: 'Efficienza energetica',
+        criteria_energy_desc: 'Classe da A++ a E — risparmio sul riscaldamento',
+        criteria_eco: 'Eco-compatibilità',
+        criteria_eco_desc: 'Sicurezza materiali per la salute',
+        criteria_impregnation: 'Trattamento legno',
+        criteria_impregnation_desc: 'Protezione da marciume, muffa e insetti',
+        criteria_fire: 'Protezione antincendio',
+        criteria_fire_desc: 'Trattamento ignifugo per sicurezza',
+        criteria_complexity: 'Facilità installazione',
+        criteria_complexity_desc: 'Se serve attrezzatura speciale o basta una squadra',
+        criteria_time: 'Tempo installazione',
+        criteria_time_desc: 'Quanti giorni fino alla casa pronta',
+        criteria_region: 'Regione',
+        criteria_region_desc: 'Se la costruzione è adatta al tuo clima',
+        criteria_rating: 'Punteggio finale',
+        criteria_rating_desc: 'Punteggio pesato su tutti i criteri',
+
+        // FAQ
+        faq_label: 'FAQ',
+        faq_title: 'Domande Frequenti',
+        faq1_q: 'Quali formati file sono supportati?',
+        faq1_a: 'L\'analizzatore accetta file PDF, Excel (.xlsx, .xls) e CSV. Dimensione massima 10 MB. Il sistema riconosce automaticamente la struttura del preventivo ed estrae i parametri chiave.',
+        faq2_q: 'Come viene calcolato il punteggio finale?',
+        faq2_a: 'Il punteggio finale è una valutazione pesata da 1 a 10. I pesi maggiori sono: costo (25%), efficienza energetica (20%), tempo installazione (15%). Gli altri criteri sono distribuiti uniformemente.',
+        faq3_q: 'Posso inserire dati manualmente?',
+        faq3_a: 'Sì, passa alla scheda "Inserisci manualmente" e compila i moduli per entrambi i preventivi. Comodo se non hai file o vuoi confrontare rapidamente parametri specifici.',
+        faq4_q: 'I dati vengono inviati a un server?',
+        faq4_a: 'No, tutti i calcoli vengono eseguiti localmente nel tuo browser. I tuoi preventivi e dati non vengono inviati da nessuna parte e non vengono salvati dopo la chiusura della pagina.',
+        faq5_q: 'Quanto costa?',
+        faq5_a: 'L\'analizzatore è completamente gratuito. Il numero di confronti è illimitato. Puoi scaricare report PDF senza registrazione o abbonamento.',
+
+        // CTA
+        cta_title: 'Pronto a confrontare preventivi?',
+        cta_desc: 'Carica file e ottieni un\'analisi oggettiva in pochi minuti',
+        cta_btn: 'Inizia analisi gratuita',
+
+        // Footer
+        footer_desc: 'Analizzatore professionale di preventivi per case in legno',
+        footer_nav: 'Navigazione',
+        footer_contacts: 'Contatti',
+        footer_copyright: '© 2024 Framehouse. Tutti i diritti riservati.',
+
+        // Notifications
+        notif_demo_loaded: 'Dati demo caricati',
+        notif_analysis_complete: 'Analisi completata',
+        notif_ready_new: 'Pronto per nuova analisi',
+        notif_file_uploaded: 'File caricato',
+        notif_unsupported_format: 'Formato file non supportato',
+        notif_file_too_large: 'File troppo grande (max 10MB)',
+        notif_upload_or_manual: 'Carica file o usa inserimento manuale',
+        notif_analyzing: 'Analisi file in corso...',
+        notif_pdf_soon: 'Download PDF disponibile nella prossima versione',
+
+        // Recommendations
+        rec_cheaper: 'La nostra offerta costa meno di {amount} ({percent}%). Risparmio significativo per il cliente.',
+        rec_more_expensive: 'Il nostro prezzo è più alto. Consigliamo di evidenziare i vantaggi aggiuntivi: qualità materiali, garanzia, servizio.',
+        rec_energy_better: 'Classe energetica {class} ridurrà significativamente i costi di riscaldamento — risparmio fino al 30% annuo.',
+        rec_faster: 'Installazione più veloce di {days}. Il cliente potrà trasferirsi prima.',
+        rec_impregnation: 'Il nostro legno è trattato con impregnazione protettiva — la durata della struttura aumenta di 15-20 anni.',
+        rec_fire: 'Il trattamento ignifugo migliora la sicurezza antincendio e può ridurre i costi assicurativi.',
+        rec_eco: 'Usiamo materiali ecologici senza formaldeide — sicuri per la salute della famiglia.',
+        rec_thickness: 'Spessore pareti di {mm} mm garantisce migliore isolamento termico e acustico.',
+        rec_simpler: 'Installazione più semplice riduce rischio errori e permette risparmio sulla manodopera.',
+        rec_default: 'Entrambe le offerte sono comparabili nelle caratteristiche. Consigliamo di chiarire i termini di garanzia e assistenza.',
+
+        // Chart labels
+        chart_price: 'Prezzo',
+        chart_delivery: 'Consegna',
+        chart_weight: 'Peso',
+        chart_insulation: 'Isolamento',
+        chart_energy: 'Efficienza energetica',
+        chart_speed: 'Velocità installazione',
+        chart_simplicity: 'Facilità installazione',
+        chart_protection: 'Protezione legno',
+        chart_cost: 'Costo',
+        chart_total: 'Totale',
+        chart_competitor: 'Concorrente',
+        chart_our: 'La nostra offerta',
+
+        // Currency
+        currency: 'Valuta',
+
+        // Pluralization
+        class_one: 'classe',
+        class_few: 'classi',
+        class_many: 'classi',
+
+        // Tooltips
+        tooltip_price_title: 'Costo Totale',
+        tooltip_price_text: 'Include costo di tutti i materiali, componenti e assemblaggio telaio. Prezzo più basso a parità di qualità è sempre meglio.',
+
+        tooltip_delivery_title: 'Costo Consegna',
+        tooltip_delivery_text: 'Dipende dalla distanza dal cantiere e volume materiali. Considera questo nel confronto prezzi finali.',
+
+        tooltip_weight_title: 'Peso Costruzione',
+        tooltip_weight_text: 'Telaio leggero (sotto 10 tonnellate) permette fondazione più semplice e consegna più facile. Costruzioni pesanti richiedono fondazioni rinforzate.',
+
+        tooltip_thickness_title: 'Spessore Pareti',
+        tooltip_thickness_text: 'Pareti più spesse significano migliore isolamento termico e acustico. Standard per clima moderato 150-200mm, per regioni fredde 200mm+.',
+
+        tooltip_energy_title: 'Efficienza Energetica',
+        tooltip_energy_text: 'Classe A++ risparmia fino al 50% sul riscaldamento rispetto alla classe C. Classe più alta significa meno dispersione termica e maggior comfort.',
+
+        tooltip_installation_time_title: 'Tempo Installazione',
+        tooltip_installation_time_text: 'Installazione veloce (7-14 giorni) riduce costi generali e permette trasloco anticipato. Ma la qualità non deve soffrire per la fretta.',
+
+        tooltip_region_title: 'Regione Costruzione',
+        tooltip_region_text: 'La costruzione deve corrispondere ai carichi climatici: neve, sbalzi termici, umidità. Le regioni nordiche richiedono isolamento potenziato.',
+
+        tooltip_complexity_title: 'Complessità Installazione',
+        tooltip_complexity_text: 'Installazione facile (fai-da-te) fa risparmiare 2.000-4.000€ sulla manodopera. Complessa richiede attrezzatura speciale e squadra professionale.',
+
+        tooltip_impregnation_title: 'Impregnazione Legno',
+        tooltip_impregnation_text: 'Il trattamento antisettico protegge da marciume, muffa e insetti. Estende la vita del telaio di 15-20 anni.',
+
+        tooltip_eco_title: 'Materiali Ecologici',
+        tooltip_eco_text: 'Materiali senza formaldeide e composti tossici sono sicuri per la salute. Particolarmente importante per famiglie con bambini.',
+
+        tooltip_fire_title: 'Protezione Antincendio',
+        tooltip_fire_text: 'I ritardanti di fiamma aumentano la resistenza al fuoco del legno da R15 a R45-R60. Può ridurre i costi assicurativi del 20-30%.'
+    },
+    fr: {
+        // Loader
+        loader_text: 'Chargement de l\'analyseur...',
+
+        // Header
+        nav_analyzer: 'Analyseur',
+        nav_how_it_works: 'Comment ça marche',
+        nav_criteria: 'Critères',
+        nav_faq: 'FAQ',
+        nav_cta: 'Démarrer l\'analyse',
+
+        // Hero
+        hero_badge: 'Outil d\'analyse professionnel',
+        hero_title_1: 'Comparez les devis',
+        hero_title_2: 'pour maisons à ossature bois',
+        hero_title_3: 'en 2 minutes',
+        hero_subtitle: 'Téléchargez le devis du concurrent et notre offre — obtenez une analyse détaillée sur 10 critères : du coût à l\'efficacité énergétique',
+        hero_btn_upload: 'Télécharger devis',
+        hero_btn_how: 'Comment ça marche',
+        hero_stat_criteria: 'Critères de comparaison',
+        hero_stat_formats: 'Formats de fichiers',
+        hero_stat_free: 'Analyses gratuites',
+
+        // Hero cards
+        hero_card_competitor: 'Devis concurrent',
+        hero_card_our: 'Notre offre',
+        hero_card_cost: 'Coût',
+        hero_card_energy: 'Efficacité énergétique',
+
+        // Analyzer
+        analyzer_label: 'Outil',
+        analyzer_title: 'Analyseur de Devis',
+        analyzer_desc: 'Téléchargez des fichiers ou entrez les données manuellement pour une comparaison détaillée',
+        tab_upload: 'Télécharger fichiers',
+        tab_manual: 'Saisie manuelle',
+
+        // Upload zone
+        upload_competitor_title: 'Devis concurrent',
+        upload_our_title: 'Notre offre',
+        upload_desc: 'Glissez le fichier ou cliquez pour sélectionner',
+        upload_formats: 'PDF, Excel, CSV jusqu\'à 10MB',
+
+        // Form sections
+        section_readiness: 'État d\'avancement',
+        section_construction: 'Construction',
+        section_thermal: 'Physique des murs et thermique',
+        section_completeness: 'Complétude structure',
+        section_foundation: 'Fondation',
+        section_installation: 'Installation et délais',
+        section_logistics: 'Logistique',
+
+        // Form labels
+        form_price: 'Coût total',
+        form_area: 'Surface (m²)',
+        form_floors: 'Étages',
+        form_roof_type: 'Type de toit',
+        form_structure_type: 'Système structurel',
+        form_delivery: 'Coût livraison',
+        form_delivery_method: 'Mode de livraison',
+        form_weight: 'Poids construction (kg)',
+        form_thickness: 'Épaisseur murs (mm)',
+        form_insulation_type: 'Type isolation',
+        form_insulation_thickness: 'Épaisseur isolation (mm)',
+        form_energy: 'Classe énergétique',
+        form_vapor_barrier: 'Pare-vapeur',
+        form_wind_barrier: 'Pare-vent',
+        form_full_insulation: 'Isolation complète',
+        form_factory_prep: 'Éléments préfabriqués',
+        form_foundation_type: 'Type fondation',
+        form_foundation_insulation: 'Isolation fondation',
+        form_waterproofing: 'Étanchéité',
+        form_installation_time: 'Délai installation (jours)',
+        form_region: 'Région construction',
+        form_complexity: 'Complexité installation',
+        form_weather_dependent: 'Dépend de la météo',
+        form_crane_needed: 'Grue requise',
+        form_impregnation: 'Imprégnation bois',
+        form_eco: 'Matériaux écologiques',
+        form_fire_protection: 'Protection incendie',
+
+        // Select placeholders
+        select_placeholder: 'Sélectionner',
+
+        // Roof types
+        roof_gable: 'À deux pentes',
+        roof_hip: 'En croupe',
+        roof_flat: 'Plat',
+        roof_mansard: 'Mansarde',
+
+        // Structure types
+        structure_prefab: 'Préfabriqué (panneaux)',
+        structure_frame: 'Ossature',
+        structure_brick: 'Maçonnerie',
+        structure_aerated: 'Béton cellulaire',
+        structure_concrete: 'Béton armé',
+        structure_clt: 'Panneaux CLT',
+
+        // Insulation types
+        insulation_mineral: 'Laine minérale',
+        insulation_basalt: 'Laine de basalte',
+        insulation_eps: 'Polystyrène (EPS)',
+        insulation_xps: 'Extrudé (XPS)',
+        insulation_pir: 'PIR/PUR',
+        insulation_eco: 'Cellulose',
+
+        // Foundation types
+        foundation_slab: 'Dalle monolithique',
+        foundation_strip: 'Semelle filante',
+        foundation_pile: 'Sur pieux',
+        foundation_screw: 'Pieux vissés',
+        foundation_basement: 'Avec sous-sol',
+
+        // Delivery methods
+        delivery_truck: 'Camion',
+        delivery_container: 'Conteneur',
+        delivery_trawl: 'Remorque plateau',
+
+        // Energy classes
+        energy_select: 'Sélectionner classe',
+        energy_max: 'maximum',
+        energy_min: 'minimum',
+
+        // Regions
+        region_select: 'Sélectionner région',
+        region_central: 'Central',
+        region_north: 'Nord',
+        region_south: 'Sud',
+        region_ural: 'Oural',
+        region_siberia: 'Sibérie',
+        region_far_east: 'Extrême-Orient',
+
+        // Complexity
+        complexity_select: 'Sélectionner',
+        complexity_easy: 'Facile (bricolage)',
+        complexity_medium: 'Moyen (équipe 2-3 pers.)',
+        complexity_hard: 'Difficile (équipement spécial)',
+
+        // Buttons
+        btn_analyze: 'Lancer l\'Analyse',
+        btn_demo: 'Charger données démo',
+        btn_download_pdf: 'Télécharger rapport PDF',
+        btn_new_analysis: 'Nouvelle analyse',
+
+        // Results
+        results_label: 'Résultats',
+        results_title: 'Analyse Comparative',
+        winner_title: 'Meilleure offre :',
+        winner_our: 'Notre offre',
+        winner_competitor: 'Offre concurrent',
+        winner_score_label: 'sur 10',
+        summary_savings: 'Économies',
+        summary_time: 'Installation plus rapide',
+        summary_energy: 'Efficacité énergétique',
+        chart_radar: 'Radar performances',
+        chart_cost: 'Comparaison coûts',
+        table_title: 'Comparaison détaillée',
+        table_criteria: 'Critère',
+        table_competitor: 'Concurrent',
+        table_our: 'Notre offre',
+        table_diff: 'Différence',
+        table_winner: 'Gagnant',
+        recommendations_title: 'Recommandations',
+
+        // Table rows
+        row_price: 'Coût total',
+        row_delivery: 'Coût livraison',
+        row_weight: 'Poids construction',
+        row_thickness: 'Épaisseur murs',
+        row_insulation_thickness: 'Épaisseur isolation',
+        row_energy: 'Efficacité énergétique',
+        row_structure: 'Type structure',
+        row_foundation: 'Type fondation',
+        row_installation: 'Délai installation',
+        row_complexity: 'Complexité installation',
+        row_vapor_barrier: 'Pare-vapeur',
+        row_wind_barrier: 'Pare-vent',
+        row_full_insulation: 'Isolation complète',
+        row_factory_prep: 'Prêt usine',
+        row_foundation_insulation: 'Isolation fondation',
+        row_waterproofing: 'Étanchéité',
+        row_impregnation: 'Imprégnation bois',
+        row_eco: 'Matériaux écologiques',
+        row_fire: 'Protection incendie',
+
+        // Winner badges
+        badge_our: 'Nous',
+        badge_competitor: 'Concurrent',
+        badge_tie: 'Égalité',
+
+        // Units
+        unit_kg: 'kg',
+        unit_mm: 'mm',
+        unit_days: 'jours',
+        unit_day: 'jour',
+        unit_days_few: 'jours',
+
+        // Complexity names
+        complexity_easy_short: 'Facile',
+        complexity_medium_short: 'Moyen',
+        complexity_hard_short: 'Difficile',
+
+        // Yes/No
+        yes: 'Oui',
+        no: 'Non',
+
+        // How it works
+        how_label: 'Processus',
+        how_title: 'Comment fonctionne l\'analyseur',
+        step1_title: 'Téléchargez devis',
+        step1_desc: 'Glissez fichiers PDF ou Excel avec devis concurrent et votre offre',
+        step2_title: 'Auto-analyse',
+        step2_desc: 'Le système extrait les paramètres clés et compare sur 10+ critères',
+        step3_title: 'Obtenez rapport',
+        step3_desc: 'Graphiques interactifs, tableau comparatif et recommandations avec téléchargement PDF',
+
+        // Criteria section
+        criteria_label: 'Critères',
+        criteria_title: 'Ce que nous comparons',
+        criteria_desc: 'Évaluation complète de tous les paramètres importants des maisons à ossature bois',
+        criteria_price: 'Coût',
+        criteria_price_desc: 'Prix total du projet incluant matériaux et main d\'œuvre',
+        criteria_delivery: 'Livraison',
+        criteria_delivery_desc: 'Coût du transport des matériaux sur site',
+        criteria_weight: 'Poids construction',
+        criteria_weight_desc: 'Masse totale — affecte fondation et logistique',
+        criteria_thickness: 'Épaisseur murs',
+        criteria_thickness_desc: 'Affecte isolation thermique et surface utile',
+        criteria_energy: 'Efficacité énergétique',
+        criteria_energy_desc: 'Classe de A++ à E — économies sur le chauffage',
+        criteria_eco: 'Éco-compatibilité',
+        criteria_eco_desc: 'Sécurité des matériaux pour la santé',
+        criteria_impregnation: 'Traitement bois',
+        criteria_impregnation_desc: 'Protection contre pourriture, moisissure et insectes',
+        criteria_fire: 'Protection incendie',
+        criteria_fire_desc: 'Traitement ignifuge pour la sécurité',
+        criteria_complexity: 'Facilité installation',
+        criteria_complexity_desc: 'Si équipement spécial requis ou équipe suffit',
+        criteria_time: 'Délai installation',
+        criteria_time_desc: 'Combien de jours jusqu\'à maison prête',
+        criteria_region: 'Région',
+        criteria_region_desc: 'Si la construction convient à votre climat',
+        criteria_rating: 'Score final',
+        criteria_rating_desc: 'Score pondéré sur tous les critères',
+
+        // FAQ
+        faq_label: 'FAQ',
+        faq_title: 'Questions Fréquentes',
+        faq1_q: 'Quels formats de fichiers sont supportés ?',
+        faq1_a: 'L\'analyseur accepte les fichiers PDF, Excel (.xlsx, .xls) et CSV. Taille maximale 10 Mo. Le système reconnaît automatiquement la structure du devis et extrait les paramètres clés.',
+        faq2_q: 'Comment le score final est-il calculé ?',
+        faq2_a: 'Le score final est une évaluation pondérée de 1 à 10. Les poids les plus importants sont : coût (25%), efficacité énergétique (20%), délai installation (15%). Les autres critères sont répartis uniformément.',
+        faq3_q: 'Puis-je entrer les données manuellement ?',
+        faq3_a: 'Oui, passez à l\'onglet "Saisie manuelle" et remplissez les formulaires pour les deux devis. Pratique si vous n\'avez pas de fichiers ou voulez comparer rapidement des paramètres spécifiques.',
+        faq4_q: 'Les données sont-elles envoyées à un serveur ?',
+        faq4_a: 'Non, tous les calculs sont effectués localement dans votre navigateur. Vos devis et données ne sont envoyés nulle part et ne sont pas sauvegardés après fermeture de la page.',
+        faq5_q: 'Combien ça coûte ?',
+        faq5_a: 'L\'analyseur est entièrement gratuit. Le nombre de comparaisons est illimité. Vous pouvez télécharger des rapports PDF sans inscription ni abonnement.',
+
+        // CTA
+        cta_title: 'Prêt à comparer les devis ?',
+        cta_desc: 'Téléchargez les fichiers et obtenez une analyse objective en quelques minutes',
+        cta_btn: 'Démarrer analyse gratuite',
+
+        // Footer
+        footer_desc: 'Analyseur professionnel de devis pour maisons à ossature bois',
+        footer_nav: 'Navigation',
+        footer_contacts: 'Contacts',
+        footer_copyright: '© 2024 Framehouse. Tous droits réservés.',
+
+        // Notifications
+        notif_demo_loaded: 'Données démo chargées',
+        notif_analysis_complete: 'Analyse terminée',
+        notif_ready_new: 'Prêt pour nouvelle analyse',
+        notif_file_uploaded: 'Fichier téléchargé',
+        notif_unsupported_format: 'Format de fichier non supporté',
+        notif_file_too_large: 'Fichier trop volumineux (max 10Mo)',
+        notif_upload_or_manual: 'Téléchargez fichiers ou utilisez saisie manuelle',
+        notif_analyzing: 'Analyse des fichiers...',
+        notif_pdf_soon: 'Téléchargement PDF disponible dans la prochaine version',
+
+        // Recommendations
+        rec_cheaper: 'Notre offre coûte moins cher de {amount} ({percent}%). Économie significative pour le client.',
+        rec_more_expensive: 'Notre prix est plus élevé. Nous recommandons de souligner les avantages supplémentaires : qualité des matériaux, garantie, service.',
+        rec_energy_better: 'La classe énergétique {class} réduira significativement les coûts de chauffage — économies jusqu\'à 30% par an.',
+        rec_faster: 'Installation plus rapide de {days}. Le client pourra emménager plus tôt.',
+        rec_impregnation: 'Notre bois est traité avec une imprégnation protectrice — la durée de vie de la structure augmente de 15-20 ans.',
+        rec_fire: 'Le traitement ignifuge améliore la sécurité incendie et peut réduire les coûts d\'assurance.',
+        rec_eco: 'Nous utilisons des matériaux écologiques sans formaldéhyde — sûrs pour la santé de la famille.',
+        rec_thickness: 'L\'épaisseur des murs de {mm} mm garantit une meilleure isolation thermique et acoustique.',
+        rec_simpler: 'Installation plus simple réduit le risque d\'erreurs et permet des économies sur la main d\'œuvre.',
+        rec_default: 'Les deux offres sont comparables en caractéristiques. Nous recommandons de clarifier les conditions de garantie et de service.',
+
+        // Chart labels
+        chart_price: 'Prix',
+        chart_delivery: 'Livraison',
+        chart_weight: 'Poids',
+        chart_insulation: 'Isolation',
+        chart_energy: 'Efficacité énergétique',
+        chart_speed: 'Vitesse installation',
+        chart_simplicity: 'Facilité installation',
+        chart_protection: 'Protection bois',
+        chart_cost: 'Coût',
+        chart_total: 'Total',
+        chart_competitor: 'Concurrent',
+        chart_our: 'Notre offre',
+
+        // Currency
+        currency: 'Devise',
+
+        // Pluralization
+        class_one: 'classe',
+        class_few: 'classes',
+        class_many: 'classes',
+
+        // Tooltips
+        tooltip_price_title: 'Coût Total',
+        tooltip_price_text: 'Inclut le coût de tous les matériaux, composants et assemblage de l\'ossature. Prix plus bas à qualité comparable est toujours mieux.',
+
+        tooltip_delivery_title: 'Coût Livraison',
+        tooltip_delivery_text: 'Dépend de la distance au chantier et du volume des matériaux. Considérez ceci dans la comparaison des prix finaux.',
+
+        tooltip_weight_title: 'Poids Construction',
+        tooltip_weight_text: 'Ossature légère (moins de 10 tonnes) permet fondation plus simple et livraison plus facile. Constructions lourdes nécessitent fondations renforcées.',
+
+        tooltip_thickness_title: 'Épaisseur Murs',
+        tooltip_thickness_text: 'Murs plus épais signifient meilleure isolation thermique et acoustique. Standard pour climat modéré 150-200mm, pour régions froides 200mm+.',
+
+        tooltip_energy_title: 'Efficacité Énergétique',
+        tooltip_energy_text: 'Classe A++ économise jusqu\'à 50% sur le chauffage comparé à classe C. Classe plus élevée signifie moins de pertes de chaleur et meilleur confort.',
+
+        tooltip_installation_time_title: 'Délai Installation',
+        tooltip_installation_time_text: 'Installation rapide (7-14 jours) réduit les frais généraux et permet un emménagement anticipé. Mais la qualité ne doit pas souffrir de la précipitation.',
+
+        tooltip_region_title: 'Région Construction',
+        tooltip_region_text: 'La construction doit correspondre aux charges climatiques : neige, variations de température, humidité. Les régions nordiques nécessitent isolation renforcée.',
+
+        tooltip_complexity_title: 'Complexité Installation',
+        tooltip_complexity_text: 'Installation facile (bricolage) économise 2 000-4 000€ sur la main d\'œuvre. Complexe nécessite équipement spécial et équipe professionnelle.',
+
+        tooltip_impregnation_title: 'Imprégnation Bois',
+        tooltip_impregnation_text: 'Le traitement antiseptique protège contre pourriture, moisissure et insectes. Prolonge la durée de vie de l\'ossature de 15-20 ans.',
+
+        tooltip_eco_title: 'Matériaux Écologiques',
+        tooltip_eco_text: 'Matériaux sans formaldéhyde et composés toxiques sont sûrs pour la santé. Particulièrement important pour familles avec enfants.',
+
+        tooltip_fire_title: 'Protection Incendie',
+        tooltip_fire_text: 'Les retardateurs de flamme augmentent la résistance au feu du bois de R15 à R45-R60. Peut réduire les coûts d\'assurance de 20-30%.'
     }
 };
 
