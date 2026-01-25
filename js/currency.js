@@ -83,6 +83,25 @@ class CurrencyConverter {
         return amount / rate;
     }
 
+    /**
+     * Convert between any two currencies
+     * @param {number} amount - Amount to convert
+     * @param {string} fromCurrency - Source currency (EUR, USD, RUB)
+     * @param {string} toCurrency - Target currency (EUR, USD, RUB)
+     * @returns {number} - Converted amount
+     */
+    convertBetween(amount, fromCurrency, toCurrency) {
+        if (fromCurrency === toCurrency) return amount;
+
+        // Convert to RUB first, then to target currency
+        const fromRate = this.rates[fromCurrency] || 1;
+        const toRate = this.rates[toCurrency] || 1;
+
+        // amount in fromCurrency -> RUB -> toCurrency
+        const inRub = amount / fromRate;
+        return inRub * toRate;
+    }
+
     format(amountInRub, options = {}) {
         const currency = options.currency || this.currentCurrency;
         const converted = this.convert(amountInRub, currency);

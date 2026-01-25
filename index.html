@@ -922,6 +922,140 @@
                     </div>
                 </div>
 
+                <!-- Package Selector (shown when multiple packages found) -->
+                <div class="package-overview is-hidden" id="packageOverview">
+                    <h3 class="package-overview__title">Найденные пакеты/объекты</h3>
+                    <div class="package-overview__grid">
+                        <div class="package-overview__column">
+                            <div class="package-overview__header package-overview__header--competitor">
+                                <span>Конкурент</span>
+                                <span class="package-overview__company" id="competitorCompany"></span>
+                            </div>
+                            <div class="package-overview__list" id="competitorPackages">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+                        <div class="package-overview__column">
+                            <div class="package-overview__header package-overview__header--our">
+                                <span>Наше предложение</span>
+                                <span class="package-overview__company" id="ourCompany"></span>
+                            </div>
+                            <div class="package-overview__list" id="ourPackages">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-overview__actions">
+                        <button class="btn btn--primary" id="compareSelectedBtn">Сравнить выбранные</button>
+                    </div>
+                </div>
+
+                <!-- Detailed Extraction View (Options, Transport, Assembly, Calculator) -->
+                <div class="extraction-details is-hidden" id="extractionDetails">
+                    <h3 class="section-title">Детали сметы</h3>
+
+                    <!-- Document Info -->
+                    <div class="detail-section" id="documentInfoSection">
+                        <div class="detail-section__header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                            <span>Информация о документе</span>
+                        </div>
+                        <div class="detail-section__content" id="documentInfo">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Options by Category -->
+                    <div class="detail-section" id="optionsSection">
+                        <div class="detail-section__header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                            <span>Дополнительные опции</span>
+                        </div>
+                        <div class="options-tabs">
+                            <button class="options-tab is-active" data-category="external_walls">Наружные стены</button>
+                            <button class="options-tab" data-category="internal_walls">Внутренние стены</button>
+                            <button class="options-tab" data-category="roof">Крыша</button>
+                            <button class="options-tab" data-category="floor">Пол</button>
+                            <button class="options-tab" data-category="treatment">Обработка</button>
+                        </div>
+                        <div class="options-list" id="optionsList">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Transport -->
+                    <div class="detail-section" id="transportSection">
+                        <div class="detail-section__header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="1" y="3" width="15" height="13"/>
+                                <polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/>
+                                <circle cx="5.5" cy="18.5" r="2.5"/>
+                                <circle cx="18.5" cy="18.5" r="2.5"/>
+                            </svg>
+                            <span>Транспортировка</span>
+                        </div>
+                        <div class="transport-list" id="transportList">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Assembly -->
+                    <div class="detail-section" id="assemblySection">
+                        <div class="detail-section__header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                            <span>Монтаж</span>
+                        </div>
+                        <div class="assembly-info" id="assemblyInfo">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Cost Calculator -->
+                    <div class="detail-section calculator-section" id="calculatorSection">
+                        <div class="detail-section__header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                <line x1="8" y1="6" x2="16" y2="6"/>
+                                <line x1="8" y1="10" x2="10" y2="10"/>
+                                <line x1="12" y1="10" x2="14" y2="10"/>
+                                <line x1="8" y1="14" x2="10" y2="14"/>
+                                <line x1="12" y1="14" x2="14" y2="14"/>
+                                <line x1="8" y1="18" x2="10" y2="18"/>
+                            </svg>
+                            <span>Калькулятор стоимости</span>
+                        </div>
+                        <div class="calculator">
+                            <div class="calculator__row calculator__row--package">
+                                <span class="calculator__label">Выбранный пакет:</span>
+                                <span class="calculator__package-name" id="calcPackageName">-</span>
+                                <span class="calculator__value" id="calcPackagePrice">0 €</span>
+                            </div>
+                            <div class="calculator__row">
+                                <span class="calculator__label">Выбранные опции:</span>
+                                <span class="calculator__value" id="calcOptionsPrice">0 €</span>
+                            </div>
+                            <div class="calculator__row">
+                                <span class="calculator__label">Транспортировка:</span>
+                                <span class="calculator__value" id="calcTransportPrice">0 €</span>
+                            </div>
+                            <div class="calculator__divider"></div>
+                            <div class="calculator__row calculator__row--total">
+                                <span class="calculator__label">ИТОГО:</span>
+                                <span class="calculator__value calculator__total" id="calcTotal">0 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Detailed Comparison Table -->
                 <div class="results__table-wrapper">
                     <h3 class="results__table-title" data-i18n="table_title">Детальное сравнение</h3>
@@ -1194,6 +1328,7 @@
     <script src="js/utils.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/currency.js"></script>
+    <script src="js/pdfAnalyzer.js"></script>
     <script src="js/analyzer.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
